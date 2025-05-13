@@ -1,4 +1,4 @@
-import LinkCommon from "./LinkCommon";
+import LinkCommon from "./common/LinkCommon";
 
 const Header = () => {
   return (
