@@ -1,7 +1,9 @@
 import type { TodoType } from "@/types/todos";
 
 export const getTodos = async (): Promise<TodoType[]> => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/todos`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/todos`, {
+    cache: "no-store",
+  });
 
   if (!res.ok) throw new Error("데이터 조회 실패");
   return res.json(); // 배열 반환
@@ -9,7 +11,10 @@ export const getTodos = async (): Promise<TodoType[]> => {
 
 export const getCompletedTodos = async (): Promise<TodoType[]> => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/todos?completed=true`
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/todos?completed=true`,
+    {
+      cache: "no-store",
+    }
   );
 
   if (!res.ok) throw new Error("데이터 조회 실패");
