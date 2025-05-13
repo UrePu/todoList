@@ -31,7 +31,7 @@ const ViewTable = () => {
   };
 
   return (
-    <section aria-label="할 일 목록" className="w-[80%] mx-auto">
+    <section aria-label="할 일 목록" className="w-[95%] mx-auto md:w-[80%]">
       <h2 className="sr-only">할 일 목록</h2>
       <ul>
         {data?.map((todo) => (

@@ -30,7 +30,7 @@ const InputForm = () => {
       aria-label="할 일 입력 폼"
       className="w-full flex justify-center mt-4"
     >
-      <form onSubmit={handleSubmit} className="flex w-[80%] gap-4">
+      <form onSubmit={handleSubmit} className="flex w-[95%] gap-4 md:w-[80%]">
         <label htmlFor="todoInput" className="sr-only">
           할 일 입력
         </label>

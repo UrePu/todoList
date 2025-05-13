@@ -13,7 +13,7 @@ const IsDoneView = () => {
   return (
     <section
       aria-label="완료된 할 일 목록"
-      className="w-[80%] flex flex-col items-center justify-center"
+      className="w-[95%] flex flex-col items-center justify-center md:w-[80%]"
     >
       <h2 className="sr-only">완료된 할 일 목록</h2>
       <ul className="w-full">
