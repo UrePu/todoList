@@ -5,5 +5,6 @@ export const useGetCompletedTodos = () => {
   return useQuery({
     queryKey: ["todos", "completed"],
     queryFn: getCompletedTodos,
+    staleTime: Infinity,
   });
 };

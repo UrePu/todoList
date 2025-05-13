@@ -5,5 +5,6 @@ export const useGetTodos = () => {
   return useQuery({
     queryKey: ["todos"],
     queryFn: getTodos,
+    staleTime: Infinity,
   });
 };
