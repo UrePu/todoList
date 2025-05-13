@@ -12,6 +12,7 @@ const Home = async () => {
   await queryClient.prefetchQuery({
     queryKey: ["todos"],
     queryFn: () => getTodos(),
+    staleTime: Infinity,
   });
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
