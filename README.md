@@ -61,6 +61,7 @@ NEXT_PUBLIC_API_BASE_URL=http://localhost:3001
 - 완료 상태 토글 (낙관적 업데이트)
 - SSR prefetch 및 Hydration 처리
 - 환경변수로 API 주소 관리
+- 로딩 화면 출력
 
 ### 🐞 Trouble Shooting
 #### 문제	원인 및 해결
