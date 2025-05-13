@@ -19,10 +19,10 @@ const InputForm = () => {
     setText("");
   };
   return (
-    <div className="flex gap-4">
+    <div className="flex w-[50%] gap-4">
       <input
         type="text"
-        className="w-[50%] h-10 px-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-full h-10 px-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         placeholder="Enter your TO-DO here"
         value={text}
         onChange={handleChange}
