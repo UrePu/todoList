@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Todo App (Next.js + json-server)
 
-## Getting Started
+이 프로젝트는 Next.js와 json-server를 기반으로 한 간단한 Todo 앱입니다.  
+완료 상태 토글, 삭제, 추가 기능을 포함하고 있으며, React Query로 상태를 관리합니다.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 기술 스택
+
+- Next.js 14+ (App Router)
+- TypeScript
+- TanStack Query (React Query)
+- Tailwind CSS
+- json-server (Mock API)
+
+## 📦 설치 및 실행
+
+### 1. 레포지토리 클론
+
+```
+git clone https://github.com/your-username/todo-app.git
+```
+```
+cd todo-app
+```
+2. 의존성 설치
+```
+pnpm install
+```
+또는
+```
+npm install
+```
+⚙️ 환경 변수 설정
+```
+.env.local
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```
+NEXT_PUBLIC_API_BASE_URL=http://localhost:3001
+**json-server용 db.json를 만들어야함**
+```
+🗂️ 프로젝트 구조
+```
+.
+├── app/                    # Next.js App Router 루트
+│   ├──is-done/page.tsx     # 완료 필터링 페이지
+│   └── page.tsx            # 홈 페이지
+├── components/             # 컴포넌트
+│    └──common              # 공통 컴포넌트
+├── lib/
+│   ├── api/                # fetch 함수들
+│   ├── hooks/              # React Query 훅
+├── types/
+│   └── todos.ts            # TodoType 정의
+└── ...
+```
+✅ 주요 기능
+- Todo 등록
+- 삭제
+- 완료 상태 토글 (낙관적 업데이트)
+- SSR prefetch 및 Hydration 처리
+- 환경변수로 API 주소 관리
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🐞 Trouble Shooting
+#### 문제	원인 및 해결
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+새로고침 시 작성한 데이터가 안 보임	Next.js가 fetch()를 SSG처럼 캐싱했기 때문. fetch() 호출 시 { cache: "no-store" } 옵션을 반드시 설정해야 SSR로 동작함.
 
-## Learn More
+예시 코드
+```
+export const getTodos = async (): Promise<TodoType[]> => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/todos`, {
+    cache: "no-store",
+  });
 
-To learn more about Next.js, take a look at the following resources:
+  if (!res.ok) throw new Error("데이터 조회 실패");
+  return res.json(); 
+};
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
