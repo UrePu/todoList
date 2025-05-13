@@ -1,3 +1,4 @@
+import TQProvider from "@/lib/provider/TQprovider";
 import "./globals.css";
 
 export default function RootLayout({
@@ -7,7 +8,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <body>
+        <TQProvider>{children}</TQProvider>
+      </body>
     </html>
   );
 }
