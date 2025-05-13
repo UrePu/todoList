@@ -2,6 +2,7 @@ import TQProvider from "@/lib/provider/TQprovider";
 import "./globals.css";
 import Header from "@/components/Header";
 import { Metadata } from "next";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "나의 투두 앱",
@@ -15,10 +16,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body>
+      <body className="flex min-h-screen flex-col justify-between bg-gray-100">
         <TQProvider>
           <Header />
           <main className="p-4">{children}</main>
+          <Footer />
         </TQProvider>
       </body>
     </html>
