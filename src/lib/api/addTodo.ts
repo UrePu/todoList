@@ -1,7 +1,7 @@
 import type { NewTodo, TodoType } from "@/types/todos";
 
 export const addTodo = async (data: NewTodo): Promise<TodoType> => {
-  const res = await fetch("http://localhost:3001/todos", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/todos`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
