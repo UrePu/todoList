@@ -16,7 +16,7 @@ const IsDone = async () => {
   });
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <div className="w-full flex flex-col justify-center">
+      <div className="w-full flex flex-col items-center justify-center">
         <h1>완료한 일 목록</h1>
         <IsDoneView />
       </div>
