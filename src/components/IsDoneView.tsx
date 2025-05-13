@@ -15,10 +15,10 @@ const IsDoneView = () => {
   }
 
   return (
-    <div>
+    <div className="w-[80%] flex flex-col justify-center items-center">
       {data?.map((todo, idx) => (
         <div
-          className="flex w-[80%] justify-start items-center border-b-2 border-gray-300 py-2 gap-2"
+          className="flex w-full justify-start items-center border-b-2 border-gray-300 py-2 gap-2"
           key={todo.id}
         >
           {idx + 1}.<div className="flex ">{todo.title}</div>
