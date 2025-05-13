@@ -3,7 +3,7 @@ import { getCompletedTodos } from "@/lib/api/getTodos";
 
 export const useGetCompletedTodos = () => {
   return useQuery({
-    queryKey: ["todos"],
+    queryKey: ["todos", "completed"],
     queryFn: getCompletedTodos,
   });
 };

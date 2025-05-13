@@ -1,4 +1,5 @@
 "use client";
+import Loading from "@/app/loading";
 import { useGetCompletedTodos } from "@/lib/hooks/queries/usetGetCompletedTodo";
 import React from "react";
 
@@ -7,7 +8,7 @@ const IsDoneView = () => {
   const { data, isPending, isError } = getTodo;
 
   if (isPending) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
   if (isError) {
     return <div>Error occurred while fetching data.</div>;

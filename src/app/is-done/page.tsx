@@ -10,10 +10,11 @@ import React from "react";
 const IsDone = async () => {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
-    queryKey: ["todos"],
+    queryKey: ["todos", "completed"],
     queryFn: () => getCompletedTodos(),
     staleTime: Infinity,
   });
+  await new Promise((res) => setTimeout(res, 2000));
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
       <div>

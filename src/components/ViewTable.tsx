@@ -4,6 +4,7 @@ import React from "react";
 import ButtonCommon from "./common/ButtonCommon";
 import { useSetComplete } from "@/lib/hooks/mutations/useSetComplete";
 import { useDeleteTodo } from "@/lib/hooks/mutations/useDeleteTodo";
+import Loading from "@/app/loading";
 
 const ViewTable = () => {
   const getTodo = useGetTodos();
@@ -12,7 +13,7 @@ const ViewTable = () => {
   const { data, isPending, isError } = getTodo;
 
   if (isPending) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
   if (isError) {
     return <div>Error occurred while fetching data.</div>;
