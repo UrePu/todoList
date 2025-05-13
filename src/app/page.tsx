@@ -16,7 +16,7 @@ const Home = async () => {
   });
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <div className="w-full flex flex-col justify-center">
+      <div className="w-full flex flex-col justify-center items-center">
         <InputForm />
         <ViewTable />
       </div>

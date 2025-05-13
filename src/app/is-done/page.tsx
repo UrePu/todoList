@@ -14,10 +14,9 @@ const IsDone = async () => {
     queryFn: () => getCompletedTodos(),
     staleTime: Infinity,
   });
-  await new Promise((res) => setTimeout(res, 2000));
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <div>
+      <div className="w-full flex flex-col justify-center">
         <h1>완료한 일 목록</h1>
         <IsDoneView />
       </div>
